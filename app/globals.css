@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #00adef;
+  --color-primary-dark: #0c0edf;
+  --color-neutral: #969696;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-primary-light: #e6f7fe;
+  --color-primary-dark-light: #e8e8fd;
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
