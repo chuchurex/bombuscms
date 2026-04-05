@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/lib/sanity";
+import { siteConfig } from "@/lib/config";
 
 interface CardProps {
   title: string;
@@ -40,7 +41,7 @@ export default function Card({ title, href, description, image, date, category, 
           )}
           {date && (
             <time className="text-xs text-neutral">
-              {new Date(date).toLocaleDateString("en", {
+              {new Date(date).toLocaleDateString(siteConfig.locale, {
                 year: "numeric",
                 month: "short",
                 day: "numeric",

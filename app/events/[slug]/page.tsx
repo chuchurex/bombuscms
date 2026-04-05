@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getEventBySlug, getEventSlugs, hasConfig } from "@/lib/sanity";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import { urlFor } from "@/lib/sanity";
+import { siteConfig } from "@/lib/config";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -77,7 +78,7 @@ export default async function EventPage({ params }: Props) {
                   </svg>
                   <div>
                     <p className="text-sm font-medium">
-                      {new Date(event.startDate).toLocaleDateString("en", {
+                      {new Date(event.startDate).toLocaleDateString(siteConfig.locale, {
                         weekday: "long",
                         year: "numeric",
                         month: "long",
@@ -87,7 +88,7 @@ export default async function EventPage({ params }: Props) {
                     {event.endDate && event.endDate !== event.startDate && (
                       <p className="text-xs text-neutral">
                         Until{" "}
-                        {new Date(event.endDate).toLocaleDateString("en", {
+                        {new Date(event.endDate).toLocaleDateString(siteConfig.locale, {
                           year: "numeric",
                           month: "long",
                           day: "numeric",

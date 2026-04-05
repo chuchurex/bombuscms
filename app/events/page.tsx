@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import { getEvents } from "@/lib/sanity";
+import { siteConfig } from "@/lib/config";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ export default async function EventsPage() {
                   <div className="flex flex-col sm:flex-row gap-6">
                     <div className="flex-shrink-0 w-24 h-24 bg-white rounded-xl flex flex-col items-center justify-center shadow-sm">
                       <span className="text-sm font-medium text-primary">
-                        {new Date(event.startDate).toLocaleDateString("en", { month: "short" }).toUpperCase()}
+                        {new Date(event.startDate).toLocaleDateString(siteConfig.locale, { month: "short" }).toUpperCase()}
                       </span>
                       <span className="text-3xl font-bold text-primary-dark">
                         {new Date(event.startDate).getDate()}
@@ -98,7 +99,7 @@ export default async function EventsPage() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <div className="flex-shrink-0 w-16 h-16 bg-gray-100 rounded-lg flex flex-col items-center justify-center">
                       <span className="text-xs font-medium text-neutral">
-                        {new Date(event.startDate).toLocaleDateString("en", { month: "short" }).toUpperCase()}
+                        {new Date(event.startDate).toLocaleDateString(siteConfig.locale, { month: "short" }).toUpperCase()}
                       </span>
                       <span className="text-xl font-bold text-black">
                         {new Date(event.startDate).getDate()}

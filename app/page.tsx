@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Card from "@/components/Card";
 import Link from "next/link";
 import { getHomePage, getFeaturedPosts, getUpcomingEvents } from "@/lib/sanity";
+import { siteConfig } from "@/lib/config";
 
 export default async function HomePage() {
   const [homePage, posts, events] = await Promise.all([
@@ -77,7 +78,7 @@ export default async function HomePage() {
                       <div className="flex gap-4">
                         <div className="flex-shrink-0 w-14 h-14 bg-primary-light rounded-lg flex flex-col items-center justify-center">
                           <span className="text-xs font-medium text-primary">
-                            {new Date(event.startDate).toLocaleDateString("en", { month: "short" }).toUpperCase()}
+                            {new Date(event.startDate).toLocaleDateString(siteConfig.locale, { month: "short" }).toUpperCase()}
                           </span>
                           <span className="text-xl font-bold text-primary-dark">
                             {new Date(event.startDate).getDate()}

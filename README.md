@@ -2,6 +2,8 @@
 
 A content-driven website template built with Next.js 15, Sanity CMS, and Tailwind CSS 4. Static export ready.
 
+**Prerequisites:** Node.js 18+, Sanity account (free at [sanity.io](https://www.sanity.io))
+
 ## Quick Start
 
 ```bash
@@ -9,7 +11,7 @@ A content-driven website template built with Next.js 15, Sanity CMS, and Tailwin
 gh repo create my-site --template bombuscms/bombuscms
 cd my-site
 
-# 2. Run the setup script
+# 2. Run setup (creates Sanity project, imports demo content, configures site)
 node setup.js
 
 # 3. Install dependencies
@@ -19,10 +21,12 @@ npm install --legacy-peer-deps
 npm run dev
 ```
 
+The setup script handles Sanity project creation, CORS configuration, demo content import, color theming, and optional Spanish localization. After setup, your site has working pages with sample content ready to customize.
+
 ## Stack
 
 - **Next.js 15** - App Router with `output: "export"` for static sites
-- **Sanity CMS** - Headless CMS with embedded Studio
+- **Sanity CMS** - Headless CMS with deployed Studio
 - **Tailwind CSS 4** - Utility-first styling with `@theme inline` tokens
 - **Formspree** - Contact form handling (no backend needed)
 
@@ -99,15 +103,13 @@ NEXT_PUBLIC_FORMSPREE_ID=          # Your Formspree form ID
 
 ## Sanity CMS
 
-### Deploy schemas
+### Studio
+
+The setup script deploys Sanity Studio to `<your-hostname>.sanity.studio`. You can also redeploy manually:
 
 ```bash
 npx sanity deploy
 ```
-
-### Access Studio
-
-The Sanity Studio is embedded at the project level. After deploying, access it at your configured Studio URL.
 
 ### Content Types
 

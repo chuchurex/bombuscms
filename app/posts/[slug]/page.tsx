@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getPostSlugs, hasConfig } from "@/lib/sanity";
 import PortableTextRenderer from "@/components/PortableTextRenderer";
 import { urlFor } from "@/lib/sanity";
+import { siteConfig } from "@/lib/config";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -69,7 +70,7 @@ export default async function PostPage({ params }: Props) {
 
             {post.publishedAt && (
               <time className="text-sm text-neutral" dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString("en", {
+                {new Date(post.publishedAt).toLocaleDateString(siteConfig.locale, {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
